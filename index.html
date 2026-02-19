@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaiconLingo Presentation</title>
+    <!-- Mermaid JS for Diagrams -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+
+        :root {
+            --primary: #009e49;
+            --secondary: #ef7d00;
+            --dark: #1a1a1a;
+            --light: #f4f7f6;
+            --slide-width: 1280px;
+            --slide-height: 720px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .slide {
+            width: var(--slide-width);
+            height: var(--slide-height);
+            background: white;
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Slide Layouts */
+        .slide-content {
+            padding: 60px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slide-title-only {
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, var(--dark), #2c3e50);
+            color: white;
+            text-align: center;
+        }
+
+        .slide-split {
+            flex-direction: row;
+            gap: 40px;
+        }
+
+        .col {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 64px;
+            font-weight: 900;
+            margin-bottom: 24px;
+            line-height: 1.1;
+        }
+
+        h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            color: var(--dark);
+        }
+
+        h3 {
+            font-size: 32px;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--secondary);
+        }
+
+        p {
+            font-size: 24px;
+            line-height: 1.5;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            font-size: 24px;
+            margin-bottom: 16px;
+            padding-left: 32px;
+            position: relative;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 32px;
+            position: absolute;
+            left: 0;
+            top: -4px;
+        }
+
+        /* Mockup Embedding */
+        .mockup-container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f8f9fa;
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .mockup-iframe {
+            border: none;
+            width: 500px;
+            /* Reduced to fit context */
+            height: 900px;
+            transform: scale(0.65);
+            /* Scale down fit inside slide */
+            transform-origin: center;
+            pointer-events: none;
+            /* Disable interaction for presentation */
+        }
+
+        /* Architecture Diagram Scale */
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        /* Footer */
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 60px;
+            right: 60px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background: none;
+                padding: 0;
+                display: block;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .slide {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+                width: 100vw;
+                height: 100vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Slide 1: Title -->
+    <div class="slide slide-title-only">
+        <div style="z-index: 10;">
+            <h1 style="color: white; font-size: 80px;">FaiconLingo</h1>
+            <p style="color: rgba(255,255,255,0.8); font-size: 32px;">Preserving Heritage, Empowering Future.</p>
+            <div style="margin-top: 40px; display: flex; gap: 20px; justify-content: center;">
+                <span
+                    style="background: var(--primary); padding: 10px 20px; border-radius: 50px; font-size: 18px; font-weight: 600;">Zambian
+                    Identity</span>
+                <span
+                    style="background: var(--secondary); padding: 10px 20px; border-radius: 50px; font-size: 18px; font-weight: 600;">Digital
+                    Innovation</span>
+            </div>
+        </div>
+        <!-- Background Decor -->
+        <div
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?q=80&w=2000&auto=format&fit=crop'); opacity: 0.2; background-size: cover; z-index: 0;">
+        </div>
+    </div>
+
+    <!-- Slide 2: The Problem -->
+    <div class="slide">
+        <div class="slide-content slide-split">
+            <div class="col">
+                <h2>The Problem</h2>
+                <div style="background: #ffebee; padding: 30px; border-radius: 20px; border-left: 8px solid #c62828;">
+                    <h3>Disconnected Youth</h3>
+                    <p>Young Zambians are increasingly detached from their mother tongues due to urbanization and
+                        English dominance.</p>
+                </div>
+                <div
+                    style="background: #e3f2fd; padding: 30px; border-radius: 20px; border-left: 8px solid #1565c0; margin-top: 20px;">
+                    <h3>Fragmented Resources</h3>
+                    <p>Existing learning materials are outdated, academic, and lack the digital engagement that Gen-Z
+                        expects.</p>
+                </div>
+            </div>
+            <div class="col" style="background: #fafafa; border-radius: 20px; padding: 40px;">
+                <h2>Our Solution</h2>
+                <ul>
+                    <li><strong>Gamified Learning:</strong> Turning lessons into a "Hero's Journey".</li>
+                    <li><strong>Cultural Context:</strong> Teaching manners & proverbs, not just words.</li>
+                    <li><strong>"High-Def" Quality:</strong> A premium, polished experience to rival global apps.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <span>FaiconLingo</span>
+            <span>Why This Matters</span>
+        </div>
+    </div>
+
+    <!-- Slide 3: The "Village Path" (Gamification) -->
+    <div class="slide">
+        <div class="slide-content slide-split">
+            <div class="col">
+                <h2>1. The Journey</h2>
+                <p>We replace boring lists with an immersive <strong>Village Path</strong>.</p>
+                <ul>
+                    <li><strong>Visual Progression:</strong> Users travel from the City to the Village.</li>
+                    <li><strong>Daily Streaks:</strong> The "Flame" encourages daily habit formation.</li>
+                    <li><strong>Clan Verification:</strong> Users must interact with real elders to earn special badges.
+                    </li>
+                </ul>
+            </div>
+            <div class="col">
+                <div class="mockup-container">
+                    <iframe src="mockups/home.html" class="mockup-iframe" scrolling="no"></iframe>
+                </div>
+                <p style="text-align: center; font-size: 14px; margin-top: 10px; color: #999;">Home Dashboard Mockup</p>
+            </div>
+        </div>
+        <div class="footer">
+            <span>FaiconLingo</span>
+            <span>Visual Demo: Dashboard</span>
+        </div>
+    </div>
+
+    <!-- Slide 4: Interactive Lessons -->
+    <div class="slide">
+        <div class="slide-content slide-split">
+            <div class="col">
+                <div class="mockup-container">
+                    <iframe src="mockups/lesson.html" class="mockup-iframe" scrolling="no"></iframe>
+                </div>
+            </div>
+            <div class="col">
+                <h2>2. Immersive Lessons</h2>
+                <p>Context is everything. We use <strong>Comic-Style Dialogue</strong>.</p>
+                <ul>
+                    <li><strong>Real Scenarios:</strong> Learning "Market" vocabulary in a market setting.</li>
+                    <li><strong>AI Pronunciation:</strong> Integrated with <strong>OpenAI Whisper/Google Gemini</strong>
+                        for speech recognition, transcription, instant
+                        voice feedback.</li>
+                    <li><strong>Offline Ready:</strong> Lessons are cached for low-connectivity areas.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <span>FaiconLingo</span>
+            <span>Visual Demo: Lesson</span>
+        </div>
+    </div>
+
+    <!-- Slide 5: Cultural Stories (The Nsaka) -->
+    <div class="slide">
+        <div class="slide-content slide-split">
+            <div class="col">
+                <h2>3. The Nsaka</h2>
+                <p>The soul of the app. This is our Unique Value Proposition.</p>
+                <div
+                    style="background: #fff3e0; padding: 30px; border-radius: 20px; border-left: 8px solid var(--secondary);">
+                    <h3>"Imiti ikula e mpanga"</h3>
+                    <p style="font-style: italic;">"The growing trees are the future forest."</p>
+                </div>
+                <ul style="margin-top: 20px;">
+                    <li>Digital Storytelling from real elders.</li>
+                    <li>Shareable "Wisdom Cards" for social media.</li>
+                </ul>
+            </div>
+            <div class="col">
+                <div class="mockup-container">
+                    <iframe src="mockups/culture.html" class="mockup-iframe" scrolling="no"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>FaiconLingo</span>
+            <span>Visual Demo: Culture</span>
+        </div>
+    </div>
+
+    <!-- Slide 6: Technical Architecture -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2 style="text-align: center;">Technical Architecture</h2>
+            <div style="flex: 1; display: flex; align-items: center; justify-content: center;">
+                <img src="architecture.png" alt="Architecture Diagram" style="max-width: 100%; height: auto;">
+            </div>
+            <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
+                <div style="text-align: center;">
+                    <h3>Hybrid Power</h3>
+                    <p style="font-size: 16px;">Flutter for Premium UX + Laravel for Robust Reporting</p>
+                </div>
+                <div style="text-align: center;">
+                    <h3>Offline First</h3>
+                    <p style="font-size: 16px;">Accessible in rural areas with limited data</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>FaiconLingo</span>
+            <span>Robust & Scalable Architecture</span>
+        </div>
+    </div>
+
+    <!-- Slide 7: Project Execution Plan -->
+    <div class="slide">
+        <div class="slide-content">
+            <h2>Project Execution & Delivery</h2>
+            <p>Our <strong>Agile Collaborative Approach</strong> ensures visibility and quality at every step.</p>
+
+            <div style="display: flex; flex-direction: column; gap: 20px; margin-top: 10px;">
+
+                <!-- Phase 1 & 2 -->
+                <div style="display: flex; gap: 20px;">
+                    <div
+                        style="flex: 1; background: #e8f5e9; padding: 25px; border-radius: 16px; border-left: 6px solid var(--primary);">
+                        <h3 style="font-size: 24px; margin-bottom: 10px;">Phases 1 & 2: Foundation & Design</h3>
+                        <div style="font-size: 20px; color: #555;">
+                            <div style="margin-bottom: 8px;"><strong>🛠️ Dev Team:</strong> Setup Cloud Infra, Build
+                                Content CMS, Create High-Fidelity Prototypes.</div>
+                            <div><strong>🤝 Joint Activity:</strong> Content Validation Workshops & Method Acting
+                                Sessions with Focus Groups.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 3 -->
+                <div style="display: flex; gap: 20px;">
+                    <div
+                        style="flex: 1; background: #fff3e0; padding: 25px; border-radius: 16px; border-left: 6px solid var(--secondary);">
+                        <h3 style="font-size: 24px; margin-bottom: 10px;">Phase 3: Agile Development</h3>
+                        <div style="font-size: 20px; color: #555;">
+                            <div style="margin-bottom: 8px;"><strong>🛠️ Dev Team:</strong> Iterative Sprints, Flutter
+                                UI
+                                Implementation, AI Model Integration.</div>
+                            <div><strong>🤝 Joint Activity:</strong> Regular <em>"Show & Tell"</em> Demos for
+                                immediate feedback and course correction.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 4 & 5 -->
+                <div style="display: flex; gap: 20px;">
+                    <div
+                        style="flex: 1; background: #e3f2fd; padding: 25px; border-radius: 16px; border-left: 6px solid #1565c0;">
+                        <h3 style="font-size: 24px; margin-bottom: 10px;">Phases 4 & 5: Assurance & Launch</h3>
+                        <div style="font-size: 20px; color: #555;">
+                            <div style="margin-bottom: 8px;"><strong>🛠️ Dev Team:</strong> Automated Testing, Security
+                                Audits, App Store Optimization (ASO).</div>
+                            <div><strong>🤝 Joint Activity:</strong> User Acceptance Testing (UAT) & Go-Live Launch
+                                Event.</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="footer">
+            <span>FaiconLingo</span>
+            <span>Collaboration & Project Management</span>
+        </div>
+    </div>
+
+    <!-- Slide 8: Closing -->
+    <div class="slide slide-title-only">
+        <h1 style="color: white;">Let's Build This Together.</h1>
+        <p style="color: rgba(255,255,255,0.8);">FaiconLingo: The Future of Zambian Heritage.</p>
+        <div style="margin-top: 60px; font-size: 24px; color: white; opacity: 0.6;">
+
+        </div>
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="controls">
+        <button onclick="prevSlide()" id="prevBtn">❮ Prev</button>
+        <span id="slideCounter">1 / 8</span>
+        <button onclick="nextSlide()" id="nextBtn">Next ❯</button>
+    </div>
+
+    <style>
+        /* Slideshow CSS Overrides */
+        body {
+            overflow: hidden;
+            /* Prevent scrolling */
+            height: 100vh;
+            justify-content: center;
+        }
+
+        .slide {
+            display: none;
+            /* Hide all by default */
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.9);
+            /* Center and scale slightly */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+            transition: opacity 0.3s ease;
+        }
+
+        .slide.active {
+            display: flex;
+            z-index: 2;
+        }
+
+        .controls {
+            position: fixed;
+            bottom: 30px;
+            z-index: 100;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(5px);
+        }
+
+        .controls button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .controls button:hover {
+            background: var(--secondary);
+        }
+
+        .controls button:disabled {
+            background: #555;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        #slideCounter {
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            min-width: 50px;
+            text-align: center;
+        }
+
+        /* Fullscreen Toggle Hint */
+        .fullscreen-hint {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 12px;
+            pointer-events: none;
+        }
+    </style>
+
+    <div class="fullscreen-hint">Press F11 for Fullscreen • Use Arrow Keys to Navigate</div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const counter = document.getElementById('slideCounter');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        function showSlide(index) {
+            // Bounds check
+            if (index < 0) index = 0;
+            if (index >= slides.length) index = slides.length - 1;
+
+            currentSlide = index;
+
+            // Toggle Visibility
+            slides.forEach((slide, i) => {
+                slide.classList.remove('active');
+                if (i === currentSlide) {
+                    slide.classList.add('active');
+                }
+            });
+
+            // Update Counter
+            counter.innerText = `${currentSlide + 1} / ${slides.length}`;
+
+            // Button States
+            prevBtn.disabled = currentSlide === 0;
+            nextBtn.disabled = currentSlide === slides.length - 1;
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        });
+
+        // Initialize
+        showSlide(0);
+    </script>
+</body>
+
+</html>

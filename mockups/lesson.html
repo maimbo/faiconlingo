@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaiconLingo - Lesson</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="mobile-frame">
+        <div class="notch"></div>
+        <div class="status-bar">
+            <span>9:42</span>
+            <div class="flex-row" style="gap: 6px;">
+                <i class="fas fa-signal"></i>
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+
+        <div class="app-container" style="background: #f8f9fa;">
+
+            <!-- Top Bar -->
+            <div class="flex-between" style="padding: 16px 20px;">
+                <i class="fas fa-times" style="font-size: 20px; color: var(--text-muted);"></i>
+                <div style="flex: 1; margin: 0 20px;">
+                    <div style="height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden;">
+                        <div style="width: 60%; height: 100%; background: var(--primary-green); border-radius: 4px;">
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-row" style="gap: 4px;">
+                    <i class="fas fa-heart text-red" style="color: var(--accent-red);"></i>
+                    <span style="font-weight: 700; font-size: 14px;">5</span>
+                </div>
+            </div>
+
+            <!-- Context Info -->
+            <div style="padding: 0 20px; text-align: center; margin-bottom: 24px;">
+                <h2 style="font-size: 22px;">Buying Vegetables</h2>
+                <p style="font-size: 14px;">Listen and complete the dialogue</p>
+            </div>
+
+            <!-- Conversation Area -->
+            <div style="padding: 0 20px; display: flex; flex-direction: column; gap: 20px;">
+
+                <!-- Speaker 1 (The Vendor) -->
+                <div style="display: flex; gap: 12px;">
+                    <img src="https://ui-avatars.com/api/?name=Bana+M&background=8b4513&color=fff"
+                        style="width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;">
+                    <div>
+                        <div
+                            style="background: white; padding: 16px; border-radius: 4px 20px 20px 20px; box-shadow: var(--shadow-sm); border: 1px solid #eee; position: relative;">
+                            <p style="font-size: 16px; font-weight: 600; color: #333; margin-bottom: 4px;">Muli shani
+                                mukwai?</p>
+                            <p
+                                style="font-size: 13px; color: var(--text-muted); border-top: 1px solid #f0f0f0; padding-top: 4px; margin-top: 4px;">
+                                How are you, sir/madam?</p>
+                            <button
+                                style="position: absolute; right: -12px; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; background: var(--primary-green); border-radius: 50%; border: none; color: white; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm);">
+                                <i class="fas fa-volume-up" style="font-size: 12px;"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Speaker 2 (User) -->
+                <div style="display: flex; gap: 12px; flex-direction: row-reverse;">
+                    <img src="https://ui-avatars.com/api/?name=Me&background=ef7d00&color=fff"
+                        style="width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;">
+                    <div style="width: 100%;">
+                        <div
+                            style="background: #e8f5e9; padding: 16px; border-radius: 20px 4px 20px 20px; box-shadow: var(--shadow-sm); border: 1px solid #c8e6c9;">
+                            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                                <span
+                                    style="border-bottom: 2px solid var(--primary-green); font-weight: 600; color: var(--primary-green); padding: 0 4px;">Bwino</span>
+                                <span style="color: #333;">,</span>
+                                <span
+                                    style="border-bottom: 2px dashed #999; color: #666; padding: 0 4px; background: rgba(0,0,0,0.05); border-radius: 4px;">_______</span>
+                                <span style="font-weight: 600;">?</span>
+                            </div>
+                        </div>
+                        <p style="text-align: right; font-size: 12px; color: var(--text-muted); margin-top: 8px;">Tap to
+                            speak or select word</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Interaction Area (Bottom Sheet) -->
+            <div
+                style="position: absolute; bottom: 0; width: 100%; background: white; border-top-left-radius: 24px; border-top-right-radius: 24px; padding: 32px 24px; box-shadow: 0 -10px 40px rgba(0,0,0,0.1);">
+
+                <!-- Word Bank -->
+                <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 32px;">
+                    <button class="btn"
+                        style="background: white; border: 2px solid #e0e0e0; color: #333; padding: 12px 20px; box-shadow: 0 4px 0 #e0e0e0;">shani</button>
+                    <button class="btn"
+                        style="background: white; border: 2px solid #e0e0e0; color: #333; padding: 12px 20px; box-shadow: 0 4px 0 #e0e0e0;">mukwai</button>
+                    <button class="btn"
+                        style="background: white; border: 2px solid #e0e0e0; color: #333; padding: 12px 20px; box-shadow: 0 4px 0 #e0e0e0;">icolwa</button>
+                </div>
+
+                <!-- Microphone Button (Recording State) -->
+                <div style="text-align: center;">
+                    <div
+                        style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-green), var(--primary-green-light)); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0, 158, 73, 0.4); margin-bottom: 16px; position: relative;">
+                        <i class="fas fa-microphone" style="font-size: 32px; color: white;"></i>
+                        <!-- Pulse Ring -->
+                        <div
+                            style="position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 4px solid var(--primary-green); opacity: 0.3; transform: scale(1.3);">
+                        </div>
+                    </div>
+                    <p style="font-weight: 600; color: var(--primary-green);">Listening...</p>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
