@@ -196,6 +196,141 @@ p { font-size: 15px; line-height: 1.5; color: var(--text-muted); }
     100% { transform: translateY(0px); }
 }
 
-.animate-float {
-    animation: float 3s ease-in-out infinite;
+
+/* === New Interactive Styles === */
+
+/* 3D Button Effect */
+.btn {
+    border-bottom: 4px solid rgba(0,0,0,0.1); 
+    transition: all 0.1s;
+}
+
+.btn:active {
+    transform: translateY(4px);
+    border-bottom-width: 0;
+    margin-top: 4px; /* maintain layout */
+    margin-bottom: -4px;
+}
+
+.btn-disabled {
+    background: #e5e5e5;
+    color: #afafaf;
+    cursor: not-allowed;
+    border-bottom: 4px solid #d4d4d4;
+}
+
+.word-bank-btn {
+    background: white;
+    border: 2px solid #e5e5e5;
+    border-bottom: 4px solid #e5e5e5;
+    padding: 12px 24px;
+    border-radius: 16px;
+    font-size: 18px;
+    color: #4b4b4b;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.word-bank-btn:hover {
+    background: #f7f7f7;
+}
+
+.word-bank-btn.selected {
+    background: #e8f0fe;
+    border-color: #1cb0f6;
+    color: #1899d6;
+}
+
+/* Answer Slot */
+.answer-slot {
+   display: inline-block;
+   min-width: 80px;
+   text-align: center;
+   cursor: pointer;
+   transition: all 0.2s;
+}
+
+.answer-slot.filled {
+    background: white;
+    border: 1px solid #e5e5e5;
+    border-radius: 12px;
+    padding: 4px 12px;
+    color: #4b4b4b;
+    box-shadow: 0 2px 0 #e5e5e5;
+    margin-bottom: 4px; /* Account for shadow */
+}
+
+/* Bottom Sheet Feedback */
+.feedback-sheet {
+    position: fixed;
+    bottom: -100%;
+    left: 0;
+    width: 100%;
+    padding: 24px;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    transition: bottom 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28); /* Bouncy spring */
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 -10px 50px rgba(0,0,0,0.2);
+}
+
+.feedback-sheet.visible {
+    bottom: 0;
+}
+
+.sheet-correct {
+    background: #d7ffb8; /* Light Green */
+    color: #58a700;
+}
+
+.sheet-incorrect {
+    background: #ffdfe0; /* Light Red */
+    color: #ea2b2b;
+}
+
+.feedback-header {
+    display: flex; 
+    align-items: center; 
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+.feedback-icon-circle {
+    width: 32px; 
+    height: 32px; 
+    background: white; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
+.btn-correct {
+    background: #58a700 !important;
+    border-bottom-color: #468500 !important;
+    color: white;
+    width: 100%;
+}
+
+.btn-incorrect {
+    background: #ea2b2b !important;
+    border-bottom-color: #c42020 !important;
+    color: white;
+    width: 100%;
+}
+
+/* Shake Animation for incorrect heart logic */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+.shake-animation {
+  animation: shake 0.5s;
 }

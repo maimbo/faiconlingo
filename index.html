@@ -568,6 +568,29 @@
 
     <div class="fullscreen-hint">Press F11 for Fullscreen • Use Arrow Keys to Navigate</div>
 
+
+    <!-- Floating Demo Button -->
+    <a href="mockups/demo_viewer.html" target="_blank" style="
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #ef7d00;
+        color: white;
+        padding: 15px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 18px;
+        box-shadow: 0 10px 25px rgba(239, 125, 0, 0.4);
+        z-index: 200;
+        transition: transform 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    " onmouseover="this.style.transform='scale(1.05)'" onmouseout="this.style.transform='scale(1)'">
+        <i class="fas fa-play"></i> Try Live Demo
+    </a>
+
     <script>
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');

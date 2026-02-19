@@ -26,23 +26,28 @@
 
             <!-- Top Bar -->
             <div class="flex-between" style="padding: 16px 20px;">
-                <i class="fas fa-times" style="font-size: 20px; color: var(--text-muted);"></i>
+                <a href="home.html" style="color: inherit;"><i class="fas fa-times"
+                        style="font-size: 20px; color: var(--text-muted);"></i></a>
                 <div style="flex: 1; margin: 0 20px;">
-                    <div style="height: 8px; background: #e0e0e0; border-radius: 4px; overflow: hidden;">
-                        <div style="width: 60%; height: 100%; background: var(--primary-green); border-radius: 4px;">
+                    <div style="height: 16px; background: #e5e5e5; border-radius: 8px; overflow: hidden;">
+                        <div id="progress-bar-inner"
+                            style="width: 60%; height: 100%; background: var(--primary-green); border-radius: 8px; transition: width 0.5s cubic-bezier(0.18, 0.89, 0.32, 1.28);">
+                            <div
+                                style="width: 100%; height: 4px; background: rgba(255,255,255,0.3); margin-top: 4px; border-radius: 4px;">
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="flex-row" style="gap: 4px;">
+                <div class="flex-row shake-wrapper" style="gap: 4px;">
                     <i class="fas fa-heart text-red" style="color: var(--accent-red);"></i>
-                    <span style="font-weight: 700; font-size: 14px;">5</span>
+                    <span id="heart-count" style="font-weight: 700; font-size: 14px; color: var(--accent-red);">5</span>
                 </div>
             </div>
 
             <!-- Context Info -->
             <div style="padding: 0 20px; text-align: center; margin-bottom: 24px;">
-                <h2 style="font-size: 22px;">Buying Vegetables</h2>
-                <p style="font-size: 14px;">Listen and complete the dialogue</p>
+                <h2 style="font-size: 22px; color: #3c3c3c;">Buying Vegetables</h2>
+                <p style="font-size: 14px; color: #777;">Listen and complete the dialogue</p>
             </div>
 
             <!-- Conversation Area -->
@@ -54,15 +59,15 @@
                         style="width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;">
                     <div>
                         <div
-                            style="background: white; padding: 16px; border-radius: 4px 20px 20px 20px; box-shadow: var(--shadow-sm); border: 1px solid #eee; position: relative;">
-                            <p style="font-size: 16px; font-weight: 600; color: #333; margin-bottom: 4px;">Muli shani
+                            style="background: white; padding: 16px; border-radius: 4px 20px 20px 20px; box-shadow: var(--shadow-sm); border: 1px solid #e5e5e5; position: relative;">
+                            <p style="font-size: 16px; font-weight: 600; color: #3c3c3c; margin-bottom: 4px;">Muli shani
                                 mukwai?</p>
                             <p
-                                style="font-size: 13px; color: var(--text-muted); border-top: 1px solid #f0f0f0; padding-top: 4px; margin-top: 4px;">
+                                style="font-size: 13px; color: #afafaf; border-top: 1px solid #f0f0f0; padding-top: 4px; margin-top: 4px;">
                                 How are you, sir/madam?</p>
-                            <button
-                                style="position: absolute; right: -12px; top: 50%; transform: translateY(-50%); width: 24px; height: 24px; background: var(--primary-green); border-radius: 50%; border: none; color: white; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm);">
-                                <i class="fas fa-volume-up" style="font-size: 12px;"></i>
+                            <button class="btn"
+                                style="position: absolute; right: -12px; top: 50%; transform: translateY(-50%); width: 32px; height: 32px; background: var(--primary-green); border-radius: 50%; border: none; color: white; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm); padding: 0;">
+                                <i class="fas fa-volume-up" style="font-size: 14px;"></i>
                             </button>
                         </div>
                     </div>
@@ -75,53 +80,56 @@
                     <div style="width: 100%;">
                         <div
                             style="background: #e8f5e9; padding: 16px; border-radius: 20px 4px 20px 20px; box-shadow: var(--shadow-sm); border: 1px solid #c8e6c9;">
-                            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                            <div style="display: flex; gap: 8px; flex-wrap: wrap; align-items: center;">
                                 <span
                                     style="border-bottom: 2px solid var(--primary-green); font-weight: 600; color: var(--primary-green); padding: 0 4px;">Bwino</span>
                                 <span style="color: #333;">,</span>
-                                <span
-                                    style="border-bottom: 2px dashed #999; color: #666; padding: 0 4px; background: rgba(0,0,0,0.05); border-radius: 4px;">_______</span>
+                                <span class="answer-slot">_______</span>
                                 <span style="font-weight: 600;">?</span>
                             </div>
                         </div>
-                        <p style="text-align: right; font-size: 12px; color: var(--text-muted); margin-top: 8px;">Tap to
-                            speak or select word</p>
+                        <p style="text-align: right; font-size: 12px; color: var(--text-muted); margin-top: 8px;">Tap
+                            word below to fill</p>
                     </div>
                 </div>
 
             </div>
 
-            <!-- Interaction Area (Bottom Sheet) -->
+            <!-- Interaction Area (Bottom Fixed) -->
             <div
-                style="position: absolute; bottom: 0; width: 100%; background: white; border-top-left-radius: 24px; border-top-right-radius: 24px; padding: 32px 24px; box-shadow: 0 -10px 40px rgba(0,0,0,0.1);">
+                style="position: absolute; bottom: 0; width: 100%; background: white; border-top: 2px solid #e5e5e5; padding: 24px 24px 40px 24px;">
 
                 <!-- Word Bank -->
                 <div style="display: flex; gap: 12px; justify-content: center; margin-bottom: 32px;">
-                    <button class="btn"
-                        style="background: white; border: 2px solid #e0e0e0; color: #333; padding: 12px 20px; box-shadow: 0 4px 0 #e0e0e0;">shani</button>
-                    <button class="btn"
-                        style="background: white; border: 2px solid #e0e0e0; color: #333; padding: 12px 20px; box-shadow: 0 4px 0 #e0e0e0;">mukwai</button>
-                    <button class="btn"
-                        style="background: white; border: 2px solid #e0e0e0; color: #333; padding: 12px 20px; box-shadow: 0 4px 0 #e0e0e0;">icolwa</button>
+                    <button class="word-bank-btn" data-word="shani">shani</button>
+                    <button class="word-bank-btn" data-word="mukwai">mukwai</button>
+                    <button class="word-bank-btn" data-word="icolwa">icolwa</button>
                 </div>
 
-                <!-- Microphone Button (Recording State) -->
-                <div style="text-align: center;">
-                    <div
-                        style="width: 80px; height: 80px; background: linear-gradient(135deg, var(--primary-green), var(--primary-green-light)); border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0, 158, 73, 0.4); margin-bottom: 16px; position: relative;">
-                        <i class="fas fa-microphone" style="font-size: 32px; color: white;"></i>
-                        <!-- Pulse Ring -->
-                        <div
-                            style="position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 4px solid var(--primary-green); opacity: 0.3; transform: scale(1.3);">
-                        </div>
+                <!-- Check Button -->
+                <button id="check-btn" class="btn btn-disabled" disabled>Check</button>
+
+            </div>
+
+            <!-- Feedback Bottom Sheet -->
+            <div id="feedback-sheet" class="feedback-sheet hidden">
+                <div class="feedback-header">
+                    <div class="feedback-icon-circle">
+                        <i id="feedback-icon" class="fas fa-check" style="font-size: 20px;"></i>
                     </div>
-                    <p style="font-weight: 600; color: var(--primary-green);">Listening...</p>
+                    <div style="flex: 1;">
+                        <h3 id="feedback-title" style="margin: 0; font-size: 20px;">Nicely done!</h3>
+                        <p id="feedback-message" style="margin: 0; font-size: 14px; display: none;"></p>
+                    </div>
                 </div>
-
+                <button id="feedback-action-btn" class="btn btn-correct">Continue</button>
             </div>
 
         </div>
     </div>
+
+    <!-- Logic -->
+    <script src="js/app.js"></script>
 
 </body>
 
