@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FaiconLingo - Onboarding</title>
+    <title>FaiconLingo - Proficiency</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -15,8 +15,8 @@
             padding: 16px 20px;
             margin-bottom: 12px;
             display: flex;
-            align-items: center;
-            gap: 16px;
+            flex-direction: column;
+            gap: 8px;
             cursor: pointer;
             transition: all 0.2s;
         }
@@ -27,17 +27,15 @@
             background: #e8f5e9;
         }
 
-        .option-icon {
-            font-size: 24px;
-            color: var(--primary-green);
-            width: 32px;
-            text-align: center;
+        .option-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-main);
         }
 
-        .option-text {
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-main);
+        .option-desc {
+            font-size: 14px;
+            color: var(--text-muted);
         }
     </style>
 </head>
@@ -47,7 +45,7 @@
     <div class="mobile-frame" style="background: white;">
         <div class="notch"></div>
         <div class="status-bar">
-            <span>9:41</span>
+            <span>9:42</span>
             <div class="flex-row" style="gap: 6px;">
                 <i class="fas fa-signal"></i>
                 <i class="fas fa-wifi"></i>
@@ -59,43 +57,42 @@
 
             <!-- Progress Bar -->
             <div style="display: flex; align-items: center; gap: 16px; margin-top: 10px;">
-                <i class="fas fa-arrow-left" style="color: #999; font-size: 20px; cursor: pointer;"></i>
+                <a href="onboarding.html" style="color: inherit;"><i class="fas fa-arrow-left"
+                        style="color: #999; font-size: 20px;"></i></a>
                 <div style="flex: 1; height: 12px; background: #e0e0e0; border-radius: 6px; overflow: hidden;">
-                    <div style="width: 40%; height: 100%; background: var(--primary-green); border-radius: 6px;"></div>
+                    <div style="width: 60%; height: 100%; background: var(--primary-green); border-radius: 6px;"></div>
                 </div>
             </div>
 
             <!-- Content -->
             <div style="margin-top: 40px; flex: 1;">
+                <div style="display: flex; justify-content: center; margin-bottom: 24px;">
+                    <!-- Mascot Placeholder -->
+                    <div
+                        style="width: 100px; height: 100px; background: #f0f0f0; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                        <img src="https://ui-avatars.com/api/?name=Faicon&background=ef7d00&color=fff&rounded=true"
+                            style="width: 80px; border-radius: 50%;">
+                    </div>
+                </div>
                 <h1
                     style="font-size: 24px; font-weight: 800; color: var(--text-main); text-align: center; margin-bottom: 32px; line-height: 1.3;">
-                    Why are you learning Bemba?
+                    How much Bemba do you know?
                 </h1>
 
                 <div class="options-container">
-                    <div class="option-card">
-                        <i class="fas fa-plane option-icon"></i>
-                        <span class="option-text">Travel</span>
-                    </div>
-
                     <div class="option-card active">
-                        <i class="fas fa-briefcase option-icon"></i>
-                        <span class="option-text">Business & Work</span>
+                        <span class="option-title">I'm new to Bemba</span>
+                        <span class="option-desc">Start from the very beginning with basic greetings.</span>
                     </div>
 
                     <div class="option-card">
-                        <i class="fas fa-graduation-cap option-icon"></i>
-                        <span class="option-text">School</span>
+                        <span class="option-title">I know some words</span>
+                        <span class="option-desc">I can understand a little but struggle to speak.</span>
                     </div>
 
                     <div class="option-card">
-                        <i class="fas fa-users option-icon"></i>
-                        <span class="option-text">Family & Friends</span>
-                    </div>
-
-                    <div class="option-card">
-                        <i class="fas fa-mask option-icon"></i> <!-- Culture icon -->
-                        <span class="option-text">Culture & Heritage</span>
+                        <span class="option-title">I can have conversations</span>
+                        <span class="option-desc">Take a placement test to jump ahead.</span>
                     </div>
                 </div>
             </div>

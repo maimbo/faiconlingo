@@ -126,9 +126,9 @@ document.addEventListener('DOMContentLoaded', () => {
             bottomSheet.classList.remove('visible');
             bottomSheet.classList.add('hidden');
 
-            // Reset for demo purposes if correct, or let user try again? 
-            // prioritizing "Continue" flow which usually goes to next screen.
-            // For one-page mockup, we can just close it.
+            if (isCorrect) {
+                window.location.href = 'lesson_complete.html';
+            }
         });
     }
 
