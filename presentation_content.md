@@ -29,36 +29,65 @@
 
 ---
 
-## 3. The Solution: "High-Definition" Learning (3 Minutes)
+## 3. The Solution: Key Features (4 Minutes)
 
-**Strategy:** Show, Don't Tell. Walk them through the "Hero's Journey".
+**Strategy:** Show, Don't Tell. Walk them through each dimension of the app using the visual mockups.
 
-### Slide A: The "Village Path" (Gamification)
-**Visual:** [Screenshot: **Home Dashboard**] (`mockups/home.html`)
+### Slide 3: Personalized Journeys
+**Visual:** [Screenshot: **Onboarding**] (`mockups/onboarding.html`)
 **Talking Points:**
--   **Map-Based Progression:** Instead of a boring list of lessons, users travel a path—from the city (Lusaka) back to the village.
--   **Visual Progress:** The "Daily Flame" streak encourages habit formation (proven retention mechanic).
--   **Clan Verification:** (Unique Feature) We encourage social interaction. Users must "Verify" their skills with a real native speaker (Elder/Parent) to earn the "Clan Badge".
+-   **Segmentation:** We aren't building a one-size-fits-all tool. A tourist needs survival phrases; a local needs deep cultural fluency.
+-   **Goal-Based Adaptation:** The user journey completely reconfigures based on their goals and performance.
+-   **First Impression:** High-quality language selection screen sets a premium tone immediately.
 
-### Slide B: Immersive Lessons
+### Slide 4: Beginner-Friendly Lessons
+**Visual:** [Screenshot: **Alphabet**] (`mockups/alphabet.html`)
+**Talking Points:**
+-   **Step-by-step:** We don't overwhelm users. We start with the alphabet, basic greetings, and core phrases.
+-   **Bite-sized:** Lessons are short engagements designed to be completed in 5 minutes.
+-   **Visual & Interactive:** Tap-to-translate and visual aides make starting easy for anyone.
+
+### Slide 5: Native Audio & AI Pronunciation
 **Visual:** [Screenshot: **Interactive Lesson**] (`mockups/lesson.html`)
 **Talking Points:**
--   **Comic-Style Dialogue:** Context is key. We use visual storytelling, not just isolated words.
--   **AI Pronunciation:** Users speak, and our integration with **OpenAI Whisper** gives instant feedback.
--   **Offline First:** We know data is expensive. This lesson content is cached locally.
+-   **Authenticity:** Audio isn't robotic; we use high-quality recordings from real native speakers.
+-   **AI Integration:** Users speak into the app, and our backend integration (like OpenAI Whisper) gives instant pronunciation feedback.
+-   **Contextual:** Words aren't taught in isolation, but in real comic-style dialogues.
 
-### Slide C: Assessment & Feedback
+### Slide 6: Interactive Quizzes
 **Visual:** [Screenshot: **Gamified Quiz**] (`mockups/quiz.html`)
 **Talking Points:**
--   **Scenario-Based Learning:** "How do you receive food from an elder?" (Culture, not just Grammar).
--   **Immediate Gratification:** Positive reinforcement loop (Sound, Animation, Haptic feedback).
+-   **Gamification:** This is how we ensure retention. Matching pairs, fill-in-the-blanks.
+-   **Immediate Gratification:** Positive reinforcement loop (Sound, Animation, Haptic feedback) when you get it right.
+-   **Cultural Scenarios:** "How do you receive food from an elder?" We quiz culture, not just grammar.
 
-### Slide D: The "Nsaka" (Cultural Preservation)
+### Slide 7: The Nsaka (Cultural Heritage)
 **Visual:** [Screenshot: **Cultural Stories**] (`mockups/culture.html`)
 **Talking Points:**
--   **The Soul of the App:** This is what separates us from generic competitors.
+-   **The Soul of the App:** This is our Unique Value Proposition that standard language apps don't have.
 -   **Digital Fireplace:** Stories, Proverbs, and Wisdom shared by real elders.
--   **Shareable Content:** "Wisdom of the Day" cards for social media virality.
+-   **Viral Output:** Shareable "Wisdom of the Day" cards for Instagram/Facebook to organically market the app.
+
+### Slide 8: Progress & Community
+**Visual:** [Screenshot: **Leaderboard**] (`mockups/leaderboard.html`)
+**Talking Points:**
+-   **The Flame Streak:** The core mechanic for daily retention. If they break their streak, they lose their progress flame.
+-   **Leaderboards:** Friendly competition among peers or academies.
+-   **Clan Verification:** A user can only get a "Clan Badge" by speaking to a verified elder.
+
+### Slide 9: Offline Access
+**Visual:** [Screenshot: **Learning Path**] (`mockups/learning_path.html`)
+**Talking Points:**
+-   **Bridging the Divide:** We know data is expensive in Zambia.
+-   **Local Caching:** Content caches when on WiFi so the app remains fully functional in low-connectivity settings.
+-   **The Village Path:** The visual progression stays seamless whether online or offline.
+
+### Slide 10: FaiconLingo for Academies
+**Visual:** [Screenshot: **Academy Portal**] (`mockups/academy.html`)
+**Talking Points:**
+-   **B2B Potential:** FaiconLingo isn't just for individuals. It's an institutional tool.
+-   **Educator Portal:** Teachers can assign lesson paths, monitor student comprehension, and run custom assessments.
+-   **Riding the Wave:** We enable local language institutes to leverage our gamified platform for their own students.
 
 ---
 
