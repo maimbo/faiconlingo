@@ -89,6 +89,27 @@
 -   **Educator Portal:** Teachers can assign lesson paths, monitor student comprehension, and run custom assessments.
 -   **Riding the Wave:** We enable local language institutes to leverage our gamified platform for their own students.
 
+### Slide 11: Reports & Dashboard Analytics
+**Visual:** Two-column text layout with a large analytics icon block.
+**Talking Points:**
+-   **Data-Driven:** We don't just guess what works. The platform tracks user engagement and drop-off points to continuously improve lesson pacing.
+-   **Stakeholder Reporting:** Easy-to-read, exportable ROI and performance dashboards for investors and management.
+-   **Cohort Tracking:** Language institutes can see exactly how their specific students are progressing.
+
+### Slide 12: Management Portal
+**Visual:** Split layout highlighting Content, Users, and Push Notifications with a "Mission Control" graphic.
+**Talking Points:**
+-   **Mission Control:** An enterprise-grade CMS that allows full control without needing to release App Store updates.
+-   **Agility:** You can inject new cultural proverbs, update audio files, or fix typos instantly from the web.
+-   **Re-Engagement:** Built-in Push Notification center to bring back users who are breaking their learning streaks.
+
+### Slide 13: PWA Web App
+**Visual:** Blue gradient column outlining PWA benefits (Progressive, Responsive, Discoverable).
+**Talking Points:**
+-   **Frictionless Access:** Users can start a lesson instantly through a web link. No App Store download required just to try it.
+-   **High Accessibility:** Works flawlessly on any mobile, tablet, or desktop browser.
+-   **Bypassing Fees:** Direct web subscriptions allow us to bypass the 30% App Store "Apple Tax," increasing profitability.
+
 ---
 
 ## 4. Technical Architecture (2 Minutes)
