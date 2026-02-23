@@ -176,7 +176,19 @@ graph TD
 
 ---
 
-## 6. Proposal Questionnaire (1 Minute)
+## 6. AI Integration Strategy (2 Minutes)
+
+**Slide Visual:** Two distinct pathways side-by-side (Path A vs Path B).
+
+**Speaker Notes:**
+-   "As architects of this project, we strongly recommend building Phase 1 using standard, robust logic. Innovations in engineering, like Spaced Repetition algorithms, offer a highly engaging and tailored experience without the connectivity dependencies of external AI."
+-   "**Path A (Deterministic Core Architecture):** This is our recommended first step to excellence. It guarantees a predictable timeline, 100% offline access for rural reach, and economically optimized server costs."
+-   "**Path B (AI-Driven Ecosystem):** Once we gain good traction, we can strategically integrate transformative AI models like real-time voice grading and adaptive chatbots. This unlocks unprecedented immersion, but we must carefully manage the added connectivity requirements and variable API scaling costs."
+-   "This phased approach ensures we launch a reliable, accessible product first, before securely scaling into the future of AI."
+
+---
+
+## 7. Proposal Questionnaire (1 Minute)
 
 **Slide Visual:** Slide showing Monetization Strategy and AI Integration prompts.
 
@@ -191,7 +203,7 @@ graph TD
 
 ---
 
-## 7. Closing (1 Minute)
+## 8. Closing (1 Minute)
 
 **Speaker Notes:**
 -   "FaiconLingo is the project Zambia has been waiting for."
