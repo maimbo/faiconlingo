@@ -256,7 +256,10 @@
                 <p>We replace boring lists with an immersive <strong>Village Path</strong>.</p>
                 <ul>
                     <li><strong>Visual Progression:</strong> Users travel from the City to the Village.</li>
-                    <li><strong>Daily Streaks:</strong> The "Flame" encourages daily habit formation.</li>
+                    <li><strong>Daily Streaks & Quests:</strong> The "Flame" and daily quests drive habit formation.
+                    </li>
+                    <li><strong>Gamified Rewards:</strong> Animated mascot celebrations and leaderboards fuel retention.
+                    </li>
                     <li><strong>Clan Verification:</strong> Users must interact with real elders to earn special badges.
                     </li>
                 </ul>
@@ -286,11 +289,11 @@
                 <h2>2. Immersive Lessons</h2>
                 <p>Context is everything. We use <strong>Comic-Style Dialogue</strong>.</p>
                 <ul>
-                    <li><strong>Real Scenarios:</strong> Learning "Market" vocabulary in a market setting.</li>
-                    <li><strong>AI Pronunciation:</strong> Integrated with <strong>OpenAI Whisper/Google Gemini</strong>
-                        for speech recognition, transcription, instant
+                    <li><strong>Tap-to-Translate:</strong> Hover over words for instant native translations.</li>
+                    <li><strong>Diverse Testing:</strong> Matching pairs, fill-in-the-blanks, type what you hear.</li>
+                    <li><strong>AI Pronunciation:</strong> Integrated with <strong>OpenAI Whisper</strong> for instant
                         voice feedback.</li>
-                    <li><strong>Offline Ready:</strong> Lessons are cached for low-connectivity areas.</li>
+                    <li><strong>Accessibility:</strong> "Cannot Listen Now" fallback for public spaces.</li>
                 </ul>
             </div>
         </div>
@@ -328,7 +331,36 @@
         </div>
     </div>
 
-    <!-- Slide 6: Technical Architecture -->
+    <!-- Slide 6: Onboarding & Educator Portal (New) -->
+    <div class="slide">
+        <div class="slide-content slide-split">
+            <div class="col">
+                <h2>4. Smart Onboarding</h2>
+                <p>Personalized paths for diverse user needs.</p>
+                <ul>
+                    <li><strong>Goal-Based Routing:</strong> Segments users based on intent (Travel, School, Family).
+                    </li>
+                    <li><strong>Dynamic Content:</strong> A tourist gets survival phrases; a local gets deep cultural
+                        nuances.</li>
+                </ul>
+            </div>
+            <div class="col" style="background: #e8f5e9; border-radius: 20px; padding: 40px; margin-left: 20px;">
+                <h2>5. Educator Portal</h2>
+                <p>Transforming FaiconLingo into a classroom tool.</p>
+                <ul>
+                    <li><strong>Teacher Dashboards:</strong> Assign specific lesson paths as homework.</li>
+                    <li><strong>Progress Tracking:</strong> Monitor student engagement and comprehension.</li>
+                    <li><strong>Custom Assessments:</strong> Create tailored language tests for students.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <span>FaiconLingo</span>
+            <span>Onboarding & Education</span>
+        </div>
+    </div>
+
+    <!-- Slide 7: Technical Architecture -->
     <div class="slide">
         <div class="slide-content">
             <h2 style="text-align: center;">Technical Architecture</h2>
@@ -337,12 +369,12 @@
             </div>
             <div style="display: flex; gap: 20px; justify-content: center; margin-top: 20px;">
                 <div style="text-align: center;">
-                    <h3>Hybrid Power</h3>
-                    <p style="font-size: 16px;">Flutter for Premium UX + Laravel for Robust Reporting</p>
+                    <h3>PWA & Hybrid Power</h3>
+                    <p style="font-size: 16px;">PWA for frictionless access + Flutter for Premium Native UX</p>
                 </div>
                 <div style="text-align: center;">
                     <h3>Offline First</h3>
-                    <p style="font-size: 16px;">Accessible in rural areas with limited data</p>
+                    <p style="font-size: 16px;">Local storage limits data usage in low-connectivity areas</p>
                 </div>
             </div>
         </div>
@@ -481,7 +513,7 @@
     <!-- Navigation Controls -->
     <div class="controls">
         <button onclick="prevSlide()" id="prevBtn">❮ Prev</button>
-        <span id="slideCounter">1 / 9</span>
+        <span id="slideCounter">1 / 10</span>
         <button onclick="nextSlide()" id="nextBtn">Next ❯</button>
     </div>
 
