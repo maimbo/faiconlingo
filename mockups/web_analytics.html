@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaiconLingo - Web Analytics</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #009e49;
+            /* Zambian Green */
+            --secondary: #ef7d00;
+            /* Zambian Orange */
+            --danger: #d32f2f;
+            /* Zambian Red */
+            --dark: #1a1a1a;
+            /* Zambian Black */
+            --light: #f7f3ed;
+            /* Earthy */
+            --sidebar-width: 250px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e0d8c8' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+            color: var(--dark);
+        }
+
+        .sidebar {
+            width: var(--sidebar-width);
+            background: #ffffff;
+            border-right: 1px solid #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            padding: 24px 0;
+            z-index: 10;
+            position: relative;
+        }
+
+        .sidebar::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: repeating-linear-gradient(45deg, var(--primary), var(--primary) 10px, var(--secondary) 10px, var(--secondary) 20px, var(--dark) 20px, var(--dark) 30px);
+        }
+
+        .sidebar-logo {
+            padding: 0 24px 32px 24px;
+            font-size: 24px;
+            font-weight: 900;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-item {
+            padding: 16px 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            color: #555;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .nav-item:hover {
+            background: #f5f5f5;
+            color: var(--dark);
+        }
+
+        .nav-item.active {
+            color: var(--primary);
+            background: #e8f5e9;
+            border-right: 4px solid var(--primary);
+        }
+
+        .nav-icon {
+            font-size: 20px;
+            width: 24px;
+            text-align: center;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .top-header {
+            height: 80px;
+            background: white;
+            border-bottom: 1px solid #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+        }
+
+        .user-profile {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .view-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 40px;
+            display: flex;
+            justify-content: center;
+            background: transparent;
+        }
+
+        .content-container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 16px;
+        }
+
+        .dashboard-header h1 {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .dashboard-header p {
+            font-size: 16px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        .date-filter {
+            background: white;
+            border: 1px solid #e0e0e0;
+            padding: 8px 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            color: #555;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+        }
+
+        /* Analytics Grid */
+        .analytics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .kpi-card {
+            background: white;
+            padding: 24px;
+            border-radius: 20px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .kpi-icon-wrap {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+
+        .bg-blue {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+
+        .bg-orange {
+            background: #fff3e0;
+            color: var(--secondary);
+        }
+
+        .bg-green {
+            background: #e8f5e9;
+            color: var(--primary);
+        }
+
+        .bg-red {
+            background: #ffebee;
+            color: var(--danger);
+        }
+
+        .kpi-val {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .kpi-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #777;
+        }
+
+        .kpi-trend {
+            font-size: 13px;
+            font-weight: 700;
+            margin-top: 12px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .trend-up {
+            color: var(--primary);
+        }
+
+        .trend-down {
+            color: var(--danger);
+        }
+
+        /* Charts Area */
+        .charts-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 24px;
+        }
+
+        .chart-card {
+            background: white;
+            padding: 24px;
+            border-radius: 20px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .chart-title {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--dark);
+        }
+
+        /* Mock growth chart */
+        .mock-line-chart {
+            width: 100%;
+            height: 250px;
+            position: relative;
+            border-bottom: 2px solid #f0f0f0;
+            border-left: 2px solid #f0f0f0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            padding-bottom: 0px;
+        }
+
+        .mock-point {
+            width: 12px;
+            height: 12px;
+            background: var(--secondary);
+            border: 3px solid white;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .mock-line {
+            position: absolute;
+            height: 3px;
+            background: var(--secondary);
+            transform-origin: left center;
+        }
+
+        /* Mock bar chart */
+        .mock-bar-chart {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            height: 250px;
+            padding-top: 20px;
+            gap: 16px;
+        }
+
+        .mock-bar {
+            flex: 1;
+            background: #e8f5e9;
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .mock-bar:hover {
+            background: var(--primary);
+        }
+
+        .mock-bar-label {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            font-weight: 600;
+            color: #777;
+        }
+
+        /* Lists */
+        .list-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .list-item:last-child {
+            border-bottom: none;
+        }
+
+        .rating-stars {
+            color: #ffc107;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-logo">
+            <i class="fas fa-globe-africa"></i> FaiconLingo
+        </div>
+        <a href="web_dashboard.html" class="nav-item">
+            <i class="fas fa-home nav-icon"></i> Unit Path
+        </a>
+        <a class="nav-item">
+            <i class="fas fa-shield-alt nav-icon"></i> Nsaka Leagues
+        </a>
+        <a href="web_academies.html" class="nav-item">
+            <i class="fas fa-chalkboard-teacher nav-icon"></i> Academies
+        </a>
+        <a class="nav-item active">
+            <i class="fas fa-chart-line nav-icon"></i> M&E Analytics
+        </a>
+        <a class="nav-item">
+            <i class="fas fa-store nav-icon"></i> Marketplace
+        </a>
+    </div>
+
+    <div class="main-content">
+        <div class="top-header">
+            <div style="font-weight: 800; font-size: 18px; color: #555;">
+                Monitoring & Evaluation Portal
+            </div>
+
+            <div class="user-profile">
+                <span style="font-weight: 700; color: #555;">Admin Access</span>
+                <div class="avatar bg-dark text-white" style="background: var(--dark); color: white;"><i
+                        class="fas fa-user-shield"></i></div>
+            </div>
+        </div>
+
+        <div class="view-area">
+            <div class="content-container">
+
+                <div class="dashboard-header">
+                    <div>
+                        <h1>Platform Analytics</h1>
+                        <p>Real-time data for Monitoring and Evaluation of the FaiconLingo app performance.</p>
+                    </div>
+                    <div class="date-filter">
+                        <i class="far fa-calendar-alt"></i> Last 30 Days <i class="fas fa-chevron-down"
+                            style="font-size: 12px; margin-left: 8px;"></i>
+                    </div>
+                </div>
+
+                <!-- 4 Key Monitoring Pillars as requested -->
+                <div class="analytics-grid">
+                    <!-- Downloads & Active Users -->
+                    <div class="kpi-card">
+                        <div class="kpi-icon-wrap bg-blue"><i class="fas fa-download"></i></div>
+                        <div class="kpi-val">24.5k</div>
+                        <div class="kpi-label">Downloads & Active Users</div>
+                        <div class="kpi-trend trend-up"><i class="fas fa-arrow-up"></i> +12.5% this month</div>
+                    </div>
+
+                    <!-- Progress & Completion -->
+                    <div class="kpi-card">
+                        <div class="kpi-icon-wrap bg-orange"><i class="fas fa-tasks"></i></div>
+                        <div class="kpi-val">68%</div>
+                        <div class="kpi-label">Avg. Lesson Completion Rate</div>
+                        <div class="kpi-trend trend-up"><i class="fas fa-arrow-up"></i> +4.2% this month</div>
+                    </div>
+
+                    <!-- Feedback & Satisfaction -->
+                    <div class="kpi-card">
+                        <div class="kpi-icon-wrap bg-green"><i class="fas fa-smile-beam"></i></div>
+                        <div class="kpi-val">4.8<span style="font-size: 18px; color: #777;">/5</span></div>
+                        <div class="kpi-label">User Satisfaction Rating</div>
+                        <div class="kpi-trend trend-up"><i class="fas fa-arrow-up"></i> +0.1 this month</div>
+                    </div>
+
+                    <!-- Content Developed -->
+                    <div class="kpi-card">
+                        <div class="kpi-icon-wrap bg-red"><i class="fas fa-layer-group"></i></div>
+                        <div class="kpi-val">142</div>
+                        <div class="kpi-label">Lessons & Modules Developed</div>
+                        <div class="kpi-trend trend-up"><i class="fas fa-plus"></i> 12 new this month</div>
+                    </div>
+                </div>
+
+                <div class="charts-container">
+
+                    <!-- Growth Chart -->
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3 class="chart-title">Active User Growth</h3>
+                            <div style="display: flex; gap: 8px;">
+                                <span
+                                    style="background: #e3f2fd; color: #1565c0; padding: 4px 12px; border-radius: 12px; font-size: 12px; font-weight: bold;">Daily</span>
+                                <span
+                                    style="color: #777; padding: 4px 12px; font-size: 12px; font-weight: bold; cursor: pointer;">Weekly</span>
+                            </div>
+                        </div>
+                        <div class="mock-line-chart">
+                            <!-- Visual simulation of a chart -->
+                            <div class="mock-line"
+                                style="width: 21%; bottom: 20px; left: 0%; transform: rotate(-15deg);"></div>
+                            <div class="mock-line"
+                                style="width: 22%; bottom: 45px; left: 20%; transform: rotate(-5deg);"></div>
+                            <div class="mock-line"
+                                style="width: 21%; bottom: 55px; left: 40%; transform: rotate(-35deg);"></div>
+                            <div class="mock-line"
+                                style="width: 22%; bottom: 110px; left: 60%; transform: rotate(10deg);"></div>
+                            <div class="mock-line"
+                                style="width: 21%; bottom: 100px; left: 80%; transform: rotate(-45deg);"></div>
+
+                            <div class="mock-point" style="left: 0%; bottom: 15px;"></div>
+                            <div class="mock-point" style="left: 20%; bottom: 35px;"></div>
+                            <div class="mock-point" style="left: 40%; bottom: 50px;"></div>
+                            <div class="mock-point" style="left: 60%; bottom: 105px;"></div>
+                            <div class="mock-point" style="left: 80%; bottom: 95px;"></div>
+                            <div class="mock-point"
+                                style="left: 99%; bottom: 175px; width: 16px; height: 16px; background: var(--primary);">
+                            </div>
+
+                            <!-- X Axis Labels -->
+                            <span
+                                style="position: absolute; bottom: -25px; left: 0%; font-size: 12px; color: #999;">Mon</span>
+                            <span
+                                style="position: absolute; bottom: -25px; left: 33%; font-size: 12px; color: #999;">Wed</span>
+                            <span
+                                style="position: absolute; bottom: -25px; left: 66%; font-size: 12px; color: #999;">Fri</span>
+                            <span
+                                style="position: absolute; bottom: -25px; left: 95%; font-size: 12px; color: #999;">Sun</span>
+                        </div>
+                    </div>
+
+                    <!-- Satisfaction Breakdown -->
+                    <div class="chart-card">
+                        <h3 class="chart-title">Recent Feedback</h3>
+                        <div style="margin-top: 16px;">
+                            <div class="list-item">
+                                <div>
+                                    <div class="rating-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i></div>
+                                    <div style="font-size: 14px; font-weight: 600; color: #333; margin-top: 4px;">"Love
+                                        the Nsaka format!"</div>
+                                </div>
+                                <div style="font-size: 12px; color: #999;">2h ago</div>
+                            </div>
+                            <div class="list-item">
+                                <div>
+                                    <div class="rating-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="far fa-star"></i></div>
+                                    <div style="font-size: 14px; font-weight: 600; color: #333; margin-top: 4px;">"Add
+                                        more Bemba proverbs"</div>
+                                </div>
+                                <div style="font-size: 12px; color: #999;">5h ago</div>
+                            </div>
+                            <div class="list-item">
+                                <div>
+                                    <div class="rating-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
+                                            class="fas fa-star"></i></div>
+                                    <div style="font-size: 14px; font-weight: 600; color: #333; margin-top: 4px;">"Njovu
+                                        Mascot is cute!"</div>
+                                </div>
+                                <div style="font-size: 12px; color: #999;">1d ago</div>
+                            </div>
+                        </div>
+                        <button
+                            style="width: 100%; border: 1px solid #e0e0e0; background: transparent; padding: 10px; border-radius: 8px; font-weight: 700; color: var(--primary); margin-top: 16px; cursor: pointer;">
+                            View All Feedback
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

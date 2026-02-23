@@ -58,7 +58,8 @@
             z-index: 1000;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             max-width: 90vw;
-            overflow-x: auto;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .nav-dock:hover {
@@ -177,8 +178,20 @@
         <a class="dock-item" onclick="loadPage('academy.html', 'FaiconLingo Academies', this)">
             <i class="fas fa-chalkboard-teacher"></i> Academies
         </a>
+        <a class="dock-item" onclick="loadPage('analytics.html', 'Analytics Dashboard', this)">
+            <i class="fas fa-chart-pie"></i> Analytics
+        </a>
         <a class="dock-item" onclick="loadPage('shop.html', 'Shop', this)">
             <i class="fas fa-store"></i> Shop
+        </a>
+
+        <div class="dock-divider"></div>
+
+        <a class="dock-item" onclick="loadPage('web_dashboard.html', 'Web App Dashboard', this)">
+            <i class="fas fa-desktop"></i> Web App View
+        </a>
+        <a class="dock-item" onclick="loadPage('web_analytics.html', 'Web Analytics (M&E)', this)">
+            <i class="fas fa-chart-line"></i> Web Analytics
         </a>
     </div>
 

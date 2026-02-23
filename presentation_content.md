@@ -176,9 +176,22 @@ graph TD
 
 ---
 
-## 6. Closing (1 Minute)
+## 6. Proposal Questionnaire (1 Minute)
 
-**Slide Visual:** "Let's Build This Together."
+**Slide Visual:** Slide showing Monetization Strategy and AI Integration prompts.
+
+**Speaker Notes:**
+-   "Before finalizing the build, we have two strategic questions regarding your vision."
+-   "**Monetization:** Do we plan to monetize modules like 'FaiconLingo Academies' for schools from day one?"
+-   "**AI Integration:** Are there any particular AI-driven features (such as voice recognition, adaptive learning paths, or smart tutoring) that you strongly wish to implement, or would you prefer a more traditional, straightforward learning experience for the initial launch?"
+-   "**Content Sourcing:** Who will be the final authority on translations for the 73 languages, and do we have access to an existing digital curriculum?"
+-   "**School Integration:** Do we have existing school partnerships we can leverage for early pilot testing of the Academies feature?"
+
+-   "**User Generated Content:** Should we explore Wikipedia-style crowdsourcing for native speakers to help build out the future languages?"
+
+---
+
+## 7. Closing (1 Minute)
 
 **Speaker Notes:**
 -   "FaiconLingo is the project Zambia has been waiting for."

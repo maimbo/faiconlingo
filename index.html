@@ -733,7 +733,79 @@
         </div>
     </div>
 
-    <!-- Slide 17: Closing -->
+    <!-- Slide 17: Proposal Questionnaire -->
+    <div class="slide slide-light">
+        <div class="content" style="max-width: 1200px; padding-top: 20px;">
+            <h1 class="slide-title" style="margin-bottom: 20px;">Proposal Questionnaire</h1>
+            <p style="font-size: 18px; color: #555; margin-bottom: 30px;">To ensure perfect alignment with your vision
+                as we finalize the development schedule:</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                <div
+                    style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: left; border-left: 5px solid var(--primary);">
+                    <h3
+                        style="font-size: 20px; color: var(--text-main); margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-coins" style="color: var(--primary);"></i> Monetization
+                    </h3>
+                    <p style="font-size: 14px; color: #555; line-height: 1.5;">Are there plans to monetize specific
+                        services upon launch? For instance, will "FaiconLingo Academies" operate on a subscription model
+                        for schools?</p>
+                </div>
+
+                <div
+                    style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: left; border-left: 5px solid #1565c0;">
+                    <h3
+                        style="font-size: 20px; color: var(--text-main); margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-robot" style="color: #1565c0;"></i> AI Integration
+                    </h3>
+                    <p style="font-size: 14px; color: #555; line-height: 1.5;">Are there any particular AI-driven
+                        features (adaptive learning paths, ...) that you
+                        strongly wish to implement?</p>
+                </div>
+
+                <div
+                    style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: left; border-left: 5px solid #ef7d00;">
+                    <h3
+                        style="font-size: 20px; color: var(--text-main); margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-book-open" style="color: #ef7d00;"></i> Content & Curriculum
+                    </h3>
+                    <p style="font-size: 14px; color: #555; line-height: 1.5;">Who will be the final authority on
+                        translations, and is there an existing digital curriculum we can plug into instead of starting
+                        from scratch?</p>
+                </div>
+
+                <div
+                    style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: left; border-left: 5px solid #d32f2f;">
+                    <h3
+                        style="font-size: 20px; color: var(--text-main); margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-school" style="color: #d32f2f;"></i> School Integration
+                    </h3>
+                    <p style="font-size: 14px; color: #555; line-height: 1.5;">Do you have existing relationships with
+                        schools or the Ministry of Education that we could leverage for an early pilot test of the
+                        platform?</p>
+                </div>
+
+
+
+                <div
+                    style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); text-align: left; border-left: 5px solid #00602b;">
+                    <h3
+                        style="font-size: 20px; color: var(--text-main); margin-bottom: 10px; display: flex; align-items: center; gap: 10px;">
+                        <i class="fas fa-users" style="color: #00602b;"></i> User Generated Content / Crowdsourcing
+                    </h3>
+                    <p style="font-size: 14px; color: #555; line-height: 1.5;">To quickly reach 73 languages, does the
+                        team envision a "Wikipedia-style" community feature where verified speakers submit translations?
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span>FaiconLingo</span>
+            <span>Client Questions</span>
+        </div>
+    </div>
+
+    <!-- Slide 18: Closing -->
     <div class="slide slide-title-only">
         <h1 style="color: white;">Let's Build This Together.</h1>
         <p style="color: rgba(255,255,255,0.8);">FaiconLingo: The Future of Zambian Heritage.</p>
@@ -743,10 +815,12 @@
     </div>
 
     <!-- Navigation Controls -->
-    <div class="controls">
-        <button onclick="prevSlide()" id="prevBtn">❮ Prev</button>
-        <span id="slideCounter">1 / 14</span>
-        <button onclick="nextSlide()" id="nextBtn">Next ❯</button>
+    <div class="controls-wrapper">
+        <div class="controls">
+            <button onclick="prevSlide()" id="prevBtn">❮ Prev</button>
+            <span id="slideCounter">1 / 14</span>
+            <button onclick="nextSlide()" id="nextBtn">Next ❯</button>
+        </div>
     </div>
 
     <style>
@@ -778,7 +852,7 @@
 
         .controls {
             position: fixed;
-            bottom: 30px;
+            bottom: 20px;
             z-index: 100;
             display: flex;
             gap: 20px;
@@ -787,6 +861,29 @@
             padding: 10px 20px;
             border-radius: 30px;
             backdrop-filter: blur(5px);
+            opacity: 0;
+            /* Hidden by default */
+            transition: opacity 0.3s ease, bottom 0.3s ease;
+        }
+
+        /* Container that triggers the hover area */
+        .controls-wrapper {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            padding-bottom: 20px;
+            z-index: 99;
+        }
+
+        .controls-wrapper:hover .controls,
+        .controls:hover {
+            opacity: 1;
+            /* Visible on hover */
         }
 
         .controls button {
