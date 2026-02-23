@@ -144,8 +144,17 @@
     <iframe id="app-frame" src="home.html"></iframe>
 
     <div class="nav-dock">
+        <a class="dock-item" onclick="loadPage('onboarding.html', 'Smart Onboarding', this)">
+            <i class="fas fa-door-open"></i> Onboarding
+        </a>
         <a class="dock-item active" onclick="loadPage('home.html', 'Home Dashboard', this)">
             <i class="fas fa-home"></i> Home
+        </a>
+        <a class="dock-item" onclick="loadPage('learning_path.html', 'Unit Learning Path', this)">
+            <i class="fas fa-route"></i> Unit Path
+        </a>
+        <a class="dock-item" onclick="loadPage('tourist_path.html', 'Travel / Business Mode', this)">
+            <i class="fas fa-plane"></i> Tourist Mode
         </a>
         <a class="dock-item" onclick="loadPage('lesson.html', 'Interactive Lesson', this)">
             <i class="fas fa-play"></i> Lesson
@@ -164,6 +173,9 @@
 
         <a class="dock-item" onclick="loadPage('leaderboard.html', 'Leaderboard', this)">
             <i class="fas fa-trophy"></i> Leagues
+        </a>
+        <a class="dock-item" onclick="loadPage('academy.html', 'FaiconLingo Academies', this)">
+            <i class="fas fa-chalkboard-teacher"></i> Academies
         </a>
         <a class="dock-item" onclick="loadPage('shop.html', 'Shop', this)">
             <i class="fas fa-store"></i> Shop
